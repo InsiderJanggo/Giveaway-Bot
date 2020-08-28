@@ -18,6 +18,8 @@
   "homepage": "https://github.com/InsiderJanggo/Giveaway-Bot#readme",
   "dependencies": {
     "ascii-table": "0.0.9",
+    "common-tags": "^1.8.0",
+    "discord-giveaways": "^4.2.1",
     "discord.js": "^12.3.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",

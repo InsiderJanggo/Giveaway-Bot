@@ -4,13 +4,29 @@ const fs = require('fs');
 
 const client = new Client();
 const {TOKEN, PREFIX} = process.env;
+const config = require("./config.json");
 
 client.aliases = new Collection();
 client.commands = new Collection();
 client.categories = fs.readdirSync("./commands/");
+client.config  = config;
 ["command"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
+
+// Init discord giveaways
+const { GiveawaysManager } = require('discord-giveaways');
+client.giveawaysManager = new GiveawaysManager(client, {
+    storage: "./databases.json",
+    updateCountdownEvery: 3000,
+    default: {
+        botsCanWin: false,
+        exemptPermissions: [ "MANAGE_MESSAGES", "ADMINISTRATOR" ],
+        embedColor: "#FF0000",
+        reaction: "🎉"
+    }
+});
+
 
 client.on("ready", () => {
     console.log(`${client.user.username} Is Ready`)

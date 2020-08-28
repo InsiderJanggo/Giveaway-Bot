@@ -1,0 +1,26 @@
+{
+  "name": "giveaway-bot",
+  "version": "1.0.0",
+  "description": "A Simple Giveaway Bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "nodemon bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InsiderJanggo/Giveaway-Bot.git"
+  },
+  "author": "InsiderJanggo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InsiderJanggo/Giveaway-Bot/issues"
+  },
+  "homepage": "https://github.com/InsiderJanggo/Giveaway-Bot#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "ms": "^2.1.2"
+  }
+}

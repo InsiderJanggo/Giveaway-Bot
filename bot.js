@@ -2,8 +2,9 @@ const {Client, Collection} = require("discord.js");
 require("dotenv").config();
 const fs = require('fs');
 
+
+const {TOKEN, PREFIX, PORT} = process.env;
 const client = new Client();
-const {TOKEN, PREFIX} = process.env;
 const config = require("./config.json");
 
 client.aliases = new Collection();
@@ -55,3 +56,14 @@ client.on("message", async(message) => {
 })
 
 client.login(TOKEN);
+
+const express = require("express");
+const app = express();
+
+app.set("view engine", "ejs");
+app.set("port", PORT);
+
+app.use(express.static(__dirname + "/public"));
+
+require("./router")(app);
+app.listen(PORT, () => console.log(`Listening To ${PORT}`))
